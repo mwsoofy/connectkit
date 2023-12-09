@@ -102,10 +102,7 @@ const Introduction: React.FC = () => {
         </LogoGroup>
         <GraphicBackground>{wave}</GraphicBackground>
       </Graphic>
-      <ModalContent style={{ paddingBottom: 18 }}>
-        <ModalH1 $small>{locales.onboardingScreen_h1}</ModalH1>
-        <ModalBody>{locales.onboardingScreen_p}</ModalBody>
-      </ModalContent>
+   
       <Button href={ctaUrl} arrow>
         {locales.onboardingScreen_ctaText}
       </Button>
