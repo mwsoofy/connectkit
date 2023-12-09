@@ -7,7 +7,7 @@
   "description": "Connecting a wallet, made simple.",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/family/connectkit.git",
+    "url": "git+https://github.com/mwsoofy/connectkit.git",
     "directory": "packages/connectkit"
   },
   "type": "module",
