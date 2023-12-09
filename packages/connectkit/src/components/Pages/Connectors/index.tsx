@@ -133,10 +133,7 @@ const Wallets: React.FC = () => {
             })}
           </MobileConnectorsContainer>
           <InfoBox>
-            <ModalContent style={{ padding: 0, textAlign: 'left' }}>
-              <ModalH1 $small>{locales.connectorsScreen_h1}</ModalH1>
-              <ModalBody>{locales.connectorsScreen_p}</ModalBody>
-            </ModalContent>
+            
             <InfoBoxButtons>
               {!context.options?.hideQuestionMarkCTA && (
                 <Button
@@ -246,15 +243,7 @@ const Wallets: React.FC = () => {
             })}
           </ConnectorsContainer>
 
-          {!context.options?.hideNoWalletCTA && (
-            <LearnMoreContainer>
-              <LearnMoreButton
-                onClick={() => context.setRoute(routes.ONBOARDING)}
-              >
-                <WalletIcon /> {locales.connectorsScreen_newcomer}
-              </LearnMoreButton>
-            </LearnMoreContainer>
-          )}
+         
           {context.options?.disclaimer && (
             <Disclaimer style={{ visibility: 'hidden', pointerEvents: 'none' }}>
               <div>{context.options?.disclaimer}</div>
