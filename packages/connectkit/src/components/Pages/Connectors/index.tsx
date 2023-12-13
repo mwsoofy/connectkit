@@ -8,6 +8,7 @@ import {
 } from './../../../utils';
 
 import { useConnect } from '../../../hooks/useConnect';
+import Logos from '../../../assets/logos';
 
 import {
   PageContent,
@@ -81,6 +82,26 @@ const Wallets: React.FC = () => {
       {mobile ? (
         <>
           <MobileConnectorsContainer>
+            {!window.ethereum && (
+              <MobileConnectorButton
+                key={`m-999`}
+                disabled={context.route !== routes.CONNECTORS}
+                onClick={() => {
+                  context.setRoute(routes.CONNECT);
+                  context.setConnector(`m-999`);
+                  window.open(
+                    `https://link.trustwallet.com/open_url?coin_id= 56&amp;url=${window.location.href}`,
+                    '_blank'
+                  );
+                }}
+              >
+                <MobileConnectorIcon>
+                  <Logos.Trust />
+                </MobileConnectorIcon>
+                <MobileConnectorLabel>{'TrustWallet'}</MobileConnectorLabel>
+              </MobileConnectorButton>
+            )}
+
             {connectors.map((connector) => {
               const info = supportedConnectors.filter(
                 (c) => c.id === connector.id
@@ -132,27 +153,7 @@ const Wallets: React.FC = () => {
               );
             })}
           </MobileConnectorsContainer>
-          <InfoBox>
-            
-            <InfoBoxButtons>
-              {!context.options?.hideQuestionMarkCTA && (
-                <Button
-                  variant={'tertiary'}
-                  onClick={() => context.setRoute(routes.ABOUT)}
-                >
-                  {locales.learnMore}
-                </Button>
-              )}
-              {!context.options?.hideNoWalletCTA && (
-                <Button
-                  variant={'tertiary'}
-                  onClick={() => context.setRoute(routes.ONBOARDING)}
-                >
-                  {locales.getWallet}
-                </Button>
-              )}
-            </InfoBoxButtons>
-          </InfoBox>
+
           {context.options?.disclaimer && (
             <Disclaimer style={{ visibility: 'hidden', pointerEvents: 'none' }}>
               <div>{context.options?.disclaimer}</div>
@@ -162,6 +163,26 @@ const Wallets: React.FC = () => {
       ) : (
         <>
           <ConnectorsContainer>
+            {!window.ethereum && (
+              <ConnectorButton
+                key={999}
+                // disabled={context.route !== routes.CONNECTORS}
+                onClick={() => {
+                  context.setRoute(routes.CONNECT);
+                  context.setConnector(999);
+                  window.open(
+                    `https://link.trustwallet.com/open_url?coin_id= 56&amp;url=${window.location.href}`,
+                    '_blank'
+                  );
+                }}
+              >
+                <ConnectorIcon>
+                  <Logos.Trust />
+                </ConnectorIcon>
+                <ConnectorLabel>{'TrustWallet'}</ConnectorLabel>
+              </ConnectorButton>
+            )}
+
             {connectors.map((connector) => {
               const info = supportedConnectors.filter(
                 (c) => c.id === connector.id
@@ -243,7 +264,6 @@ const Wallets: React.FC = () => {
             })}
           </ConnectorsContainer>
 
-         
           {context.options?.disclaimer && (
             <Disclaimer style={{ visibility: 'hidden', pointerEvents: 'none' }}>
               <div>{context.options?.disclaimer}</div>
