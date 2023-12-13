@@ -96,7 +96,7 @@ const Wallets: React.FC = () => {
                 }}
               >
                 <MobileConnectorIcon>
-                  <Logos.Trust />
+                  <Logos.Trust background={false} />
                 </MobileConnectorIcon>
                 <MobileConnectorLabel>{'TrustWallet'}</MobileConnectorLabel>
               </MobileConnectorButton>
